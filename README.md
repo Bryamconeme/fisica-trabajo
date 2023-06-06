@@ -30,5 +30,65 @@ El tiro parabólico tiene numerosas aplicaciones en la vida cotidiana y en difer
 4. Juegos y simulaciones: El tiro parabólico se utiliza en juegos y simulaciones virtuales para crear experiencias realistas y calcular el movimiento de objetos en entornos virtuales.
 5. Estudios científicos: El análisis del tiro parabólico se utiliza en diferentes estudios científicos, como la investigación de la trayectoria de partículas en física de partículas, el estudio del movimiento de objetos en la atmósfera terrestre y el análisis de fenómenos naturales, como la caída de meteoritos.
 
-
     ![1686017593524](image/README/1686017593524.png)
+
+Ejercicio 1:
+Un proyectil se lanza con una velocidad inicial de 30 m/s a un ángulo de inclinación de 60 grados respecto a la horizontal. Queremos determinar el tiempo que tarda en alcanzar su altura máxima y el alcance máximo horizontal.
+
+Datos:
+
+* Velocidad inicial (v0) = 30 m/s
+* Ángulo de inclinación (θ) = 60 grados
+* Aceleración debido a la gravedad (g) = 9.8 m/s^2
+
+Ejercicio 2:
+Un objeto se lanza con una velocidad inicial de 25 m/s a un ángulo de inclinación de 30 grados respecto a la horizontal. Queremos determinar la altura máxima alcanzada y el tiempo de vuelo.
+
+Datos:
+
+* Velocidad inicial (v0) = 25 m/s
+* Ángulo de inclinación (θ) = 30 grados
+* Aceleración debido a la gravedad (g) = 9.8 m/s^2
+
+
+
+Ejercicio 1:
+Un proyectil se lanza con una velocidad inicial de 30 m/s a un ángulo de inclinación de 60 grados respecto a la horizontal. Queremos determinar el tiempo que tarda en alcanzar su altura máxima y el alcance máximo horizontal.
+
+Datos:
+
+* Velocidad inicial (v0) = 30 m/s
+* Ángulo de inclinación (θ) = 60 grados
+* Aceleración debido a la gravedad (g) = 9.8 m/s^2
+
+Para resolver este ejercicio, utilizaremos las siguientes fórmulas del tiro parabólico:
+
+1. Componente horizontal de la velocidad inicial:
+   v0x = v0 * cos(θ)
+2. Componente vertical de la velocidad inicial:
+   v0y = v0 * sin(θ)
+3. Tiempo para alcanzar la altura máxima:
+   t_max = v0y / g
+4. Alcance máximo horizontal:
+   x_max = v0x * (2 * t_max)
+
+Resolución:
+Primero, calcularemos las componentes horizontal y vertical de la velocidad inicial:
+
+v0x = v0 * cos(θ)
+v0y = v0 * sin(θ)
+
+v0x = 30 m/s * cos(60°) = 30 m/s * 0.5 = 15 m/s
+v0y = 30 m/s * sin(60°) = 30 m/s * √3/2 ≈ 25.98 m/s
+
+A continuación, determinaremos el tiempo que tarda en alcanzar la altura máxima:
+
+t_max = v0y / g
+t_max = 25.98 m/s / 9.8 m/s^2 ≈ 2.65 s
+
+Por último, calcularemos el alcance máximo horizontal:
+
+x_max = v0x * (2 * t_max)
+x_max = 15 m/s * (2 * 2.65 s) ≈ 79.5 m
+
+Por lo tanto, el proyectil tarda aproximadamente 2.65 segundos en alcanzar su altura máxima y su alcance máximo horizontal es de aproximadamente 79.5 metros.
