@@ -46,6 +46,7 @@ while True:
        print("\nCantidad Incorrecta\n")
 
 
+#Formulas
 a = tan(grados)
 b = ((g)/((2*vi*2)*cos(grados)*2))
 print()
@@ -53,6 +54,8 @@ ymax=(vi**2)*(np.sin(grados)*sin(grados))/(2*g)
 xmax=(vi**2)*(np.sin(2*grados))/(g)
 vho = vi*(cos(radians(angulo)))
 vver = vi*(sin(radians(angulo)))
+
+
 print("Un proyectil lanzado con una velocidad inicial de Vo=",vi,"m/s y un ángulo de ?=",angulo,"°,")
 print("iniciará su trayectoria con una velocidad horizontal de vxO: ",format(vho,".3f"),"m/s,")
 print("y una velocidad vertical de vyO: ",format(vver,".3f"),"m/s.")
