@@ -4,56 +4,56 @@ from math import radians
 import numpy as np
 import matplotlib.pyplot as plt
 
-while True:
-   try:
-       vi = float(input("Introduzca la velocidad inicial en (m/s) : "))
-       break
-   except ValueError:
-       print("Cantidad Incorrecta")
-print("m/s =",vi)
+while True:  #bucle while que se repite aste que el usuario ingrese una velocidad inicial valida
+   try: #instrucción para intentar convertir el valor ingresado por el usuario en un numero de punto flotante utilizando la función float
+       vi = float(input("Introduzca la velocidad inicial en (m/s) : ")) #cuando se ingresa un valor valido se asigna este valor a la variable vi
+       break #instruccion para salir del bucle 
+   except ValueError: #en caso de que se ingresen valores no validos como una letra se producira este error y con la funcion except se mostrara un mensaje en pantalla
+       print("Cantidad Incorrecta") #mensaje del error tipo ValueError
+print("m/s =",vi) #se muestra en pantalla el valor de la velocidad inicial ingresada por el usuario
 
-while True:
-   try:
-       angulo = int(input("Introduzca el ángulo en grados: "))
-       break
-   except ValueError:
-       print("\nCantidad Incorrecta\n")
+while True: #bucle que se repite asta que se ingrese un angulo de lanzamiento del proyectil valido (en grados)
+   try: #instruccion que intenta convertir el valor ingresado por el usuario en un numero entero utilizando la funcion int
+       angulo = int(input("Introduzca el ángulo en grados: ")) #si el usuario ingresa un valor valido se asigna este valor a la variable angulo
+       break #instruccion para salir del bucle
+   except ValueError: #en caso de que se ingresen valores no validos como una letra se producira este error y con la funcion except se mostrara un mensaje en pantalla
+       print("\nCantidad Incorrecta\n") #mensaje del error tipo ValueError
 print(angulo,"°")#no es necesario, lo uso para que vayamos viendo el resultado
 
-while True:
-   try:
-       g = float(input("Introduzca el valor de gravedad en m/s^2: "))
-       break
-   except ValueError:
-       print("\nCantidad Incorrecta\n")
-print("\ng =",g)
+while True: #bucle que se repite asta que el usuario ingrese el valor de la gravedad en metros por segundo al cuadrado
+   try: #instrucción para intentar convertir el valor ingresado por el usuario en un numero de punto flotante utilizando la función float
+       g = float(input("Introduzca el valor de gravedad en m/s^2: "))  #si el usuario ingresa un valor valido se asigna este valor a la variable g
+       break #instruccion para salir del bucle
+   except ValueError: #en caso de que se ingresen valores no validos como una letra se producira este error y con la funcion except se mostrara un mensaje en pantalla
+       print("\nCantidad Incorrecta\n") #mensaje del error tipo ValueError
+print("\ng =",g) #se muestra en pantalla el valor de la gravedad ingresado por el usuario
 
-grados = ((angulo*pi)/180)
-print ("\ngrados =",grados)
+grados = ((angulo*pi)/180) #se convierte el angulo de lanzamiento del proyectil de grados a radianes
+print ("\ngrados =",grados) #se muestra en la pantalla el valor del angulo en radianes
 
-while True:
-   try:
-       xo = float(input("Posición horizontal inicial [x0]: "))
-       break
-   except ValueError:
-       print("\nCantidad Incorrecta\n")
+while True: #bucle que se repite asta que se ingrese un valor valido para la posicion inicial horizontal en el eje x
+   try: #instruccion para intentar convertir el valor ingresado por el usuario en un número de punto flotante utilizando la función float
+       xo = float(input("Posición horizontal inicial [x0]: ")) #si el valor ingresado es valido se asigna a la variable xo
+       break #instruccion para salir del bucle
+   except ValueError: #en caso de que se ingresen valores no validos como una letra se producira este error y con la funcion except se mostrara un mensaje en pantalla
+       print("\nCantidad Incorrecta\n") #se muestra en pantalla un mensaje de error cuando el usuario ingresa un valor no válido
 
-while True:
-   try:
-       yo = float(input("Posición vertical inicial [y0]: "))
-       break
-   except ValueError:
-       print("\nCantidad Incorrecta\n")
+while True: #bucle que se repite asta que se ingrese un valor valido para la posicion inicial vertical en el eje y
+   try: #instruccion para intentar convertir el valor ingresado por el usuario en un número de punto flotante utilizando la función float
+       yo = float(input("Posición vertical inicial [y0]: ")) #si el valor ingresado es valido se asigna a la variable yo
+       break #instruccion para salir del bucle
+   except ValueError: #en caso de que se ingresen valores no validos como una letra se producira este error y con la funcion except se mostrara un mensaje en pantalla
+       print("\nCantidad Incorrecta\n") #se muestra en pantalla un mensaje de error cuando el usuario ingresa un valor no válido
 
 
 #Formulas
-a = tan(grados)
-b = ((g)/((2*vi*2)*cos(grados)*2))
+a = tan(grados) #se calcula la tangente del ángulo de lanzamiento del proyectil en radianes con la función tan
+b = ((g)/((2*vi*2)*cos(grados)*2)) #se calcula el valor de b que es un parámetro utilizado en la ecuación de la trayectoria del proyectil
 print()
-ymax=(vi**2)*(np.sin(grados)*sin(grados))/(2*g)
-xmax=(vi**2)*(np.sin(2*grados))/(g)
-vho = vi*(cos(radians(angulo)))
-vver = vi*(sin(radians(angulo)))
+ymax=(vi**2)*(np.sin(grados)*sin(grados))/(2*g) #se calcula la altura máxima alcanzada por el proyectil durante su trayectoria
+xmax=(vi**2)*(np.sin(2*grados))/(g) #se calcula el alcance máximo horizontal del proyectil durante su trayectoria
+vho = vi*(cos(radians(angulo))) #se calcula la velocidad horizontal inicial del proyectil
+vver = vi*(sin(radians(angulo))) #se calcula la velocidad vertical inicial del proyectil
 
 
 print("Un proyectil lanzado con una velocidad inicial de Vo=",vi,"m/s y un ángulo de ?=",angulo,"°,")
