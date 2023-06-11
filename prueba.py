@@ -62,8 +62,8 @@ print("y una velocidad vertical de vyO: ",format(vver,".3f"),"m/s.")
 print()
 print("Los parámetros más relevantes de su trayectoria son:")
 
-tmax=(vi*sin(grados))/(g)
-tv=2*(tmax)
+tmax=(vi*sin(grados))/(g)  #se calcula el tiempo máximo que el proyectil tarda en alcanzar la altura máxima durante su trayectoria
+tv=2*(tmax) #se calcula el tiempo total de vuelo del proyectil
 print()
 print(str("La altura máxima  alcanzada por el proyectil es: Ymax")+" = "+str(ymax)+" m")
 print()
@@ -80,27 +80,27 @@ print("----------------------------------------------------------------------")
 print("----------------------------------------------------------------------")
 
 # Definimos la ecuación de la trayectoria
-def f(x):
-   return(a*x-b*x**2)
-x=np.linspace(0,xmax,500)
+def f(x):  #la función llamada f(x) representa la ecuación de la trayectoria del proyectil
+   return(a*x-b*x**2) #la funcion toma como argumento un valor X y devuelve el valor correspondiente de Y en la trayectoria del proyectil
+x=np.linspace(0,xmax,500) #se utiliza la función np.linspace para crear un conjunto de 500 valores para el eje x de la gráfica que van desde 0 hasta el valor de xmax
 
 # añadimos el subtitulo
-plt.suptitle("CINEMÁTICA",fontsize=20,color="red")
+plt.suptitle("CINEMÁTICA",fontsize=20,color="red")  #la función plt.suptitle se utiliza para añadir un subtítulo a la gráfica tomando como argumentos el texto, fontsize y color
 
 #añadimos las etiquetas de los ejes
-plt.xlabel("xmax",fontsize=20,color="red")                                      
-plt.ylabel("ymax",fontsize=20,color="blue")
+plt.xlabel("xmax",fontsize=20,color="red")                                       #utilizamos la función plt.xlabel para añadir una etiqueta al eje x de la gráfica tomando como argumentos el texto de la etiqueta y los parámetros opcionales fontsize y color
+plt.ylabel("ymax",fontsize=20,color="blue") #utilizamos la función plt.ylabel para añadir la etiqueta "ymax" al eje Y de la gráfica, mienas que el tamaño y el color del texto se especifican utilizando los parámetros opcionales fontsize y color
 #añadimos texto
-plt.text(((np.argmax(f(x)))/2),np.max(f(x))+1,"vi=",fontsize=10)
-plt.text(((np.argmax(f(x)))/2)+11,np.max(f(x))+1,(str(vi)+"m/s"),fontsize=10)
+plt.text(((np.argmax(f(x)))/2),np.max(f(x))+1,"vi=",fontsize=10) #utiliza la función plt.text para añadir el texto "vi=" a la gráfica tomando como argumentos las coordenadas X e Y donde se mostrará el texto, X e Y se calculan utilizando las funciones np.argmax() y np.max() y el tamaño del texto se especifica utilizando el parámetro fontsize
+plt.text(((np.argmax(f(x)))/2)+11,np.max(f(x))+1,(str(vi)+"m/s"),fontsize=10) #
 
 # Añadimos la rejilla en la gráfica
-plt.grid(True)                                                              
-plt.grid(color = '0.5', linestyle = '--', linewidth = 1)
+plt.grid(True)                #utilizamos la función plt.grid() para añadir una rejilla a la gráfica tomando como argumento el valor booleano True que indica si se debe mostrar o no la rejilla                                             
+plt.grid(color = '0.5', linestyle = '--', linewidth = 1) #utilizamos la función plt.grid() para personalizar el aspecto de la rejilla en la gráfica usando los parámetros un color gris claro ('0.5'), un estilo de línea discontinua ('--') y un grosor de línea de 1 píxel
 # Añadimos los ejes
 # plt.axis("tight")
 
 # dibujamos y ponemos etiquetas a la gráfica
-plt.text(3,1,angulo,fontsize=10)
-plt.plot(x, f(x), "red", linewidth = 2, label = (str(angulo)+"º"))
-plt.show()
+plt.text(3,1,angulo,fontsize=10) #utilizamos la función plt.text() para añadir el texto el "valor del ángulo de lanzamiento ingresado por el usuario a la gráfica", tomando como argumentos las coordenadas X (3) e Y (1) donde se mostrará el texto y el tamaño del texto con el parámetro fontsize (10)
+plt.plot(x, f(x), "red", linewidth = 2, label = (str(angulo)+"º")) #utilizamos la función plt.plot() para dibujar la gráfica de la trayectoria del proyectil tomando como argumentos los valores de X(x) e Y(f(x)) que se deben graficar, el color que es rojo ("red") y el grosor de la línea (2 píxeles) que representa la trayectoria y una etiqueta para la línea
+plt.show() #utilizamos la función plt.show() para mostrar la gráfica en la pantalla
