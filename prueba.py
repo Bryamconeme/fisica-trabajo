@@ -1,4 +1,3 @@
-
 from math import pi, tan, cos, sin
 from math import radians
 import numpy as np
@@ -6,11 +5,11 @@ import matplotlib.pyplot as plt
 
 while True:
    try:
-       vi = float(input("Introduzca la velocidad inicial en (m/s) : "))
+       vi = float(input("Introduzca la velocidad inicial en (m/s): "))
        break
    except ValueError:
        print("Cantidad Incorrecta")
-print("m/s =",vi)
+print("Se le agrega a un objeto una velocidad de:",vi,"m/s")
 
 while True:
    try:
@@ -18,29 +17,22 @@ while True:
        break
    except ValueError:
        print("\nCantidad Incorrecta\n")
-print(angulo,"°")#no es necesario, lo uso para que vayamos viendo el resultado
 
-while True:
-   try:
-       g = float(input("Introduzca el valor de gravedad en m/s^2: "))
-       break
-   except ValueError:
-       print("\nCantidad Incorrecta\n")
-print("\ng =",g)
-
+print("Y se lanza a un angulo de",angulo,"°")#no es necesario, lo uso para que vayamos viendo el resultado
 grados = ((angulo*pi)/180)
-print ("\ngrados =",grados)
 
+g = float( "9.81")       
+
+#Posicionamiento en el plano cartesiano
 while True:
    try:
-       xo = float(input("Posición horizontal inicial [x0]: "))
+       x = float(input("En la posición horizontal inicial(Eje X): "))
        break
    except ValueError:
        print("\nCantidad Incorrecta\n")
-
 while True:
    try:
-       yo = float(input("Posición vertical inicial [y0]: "))
+       y = float(input("Y posición vertical inicial(Eje Y): "))
        break
    except ValueError:
        print("\nCantidad Incorrecta\n")
@@ -49,58 +41,57 @@ while True:
 #Formulas
 a = tan(grados)
 b = ((g)/((2*vi*2)*cos(grados)*2))
-print()
+
+#print()
+
 ymax=(vi**2)*(np.sin(grados)*sin(grados))/(2*g)
 xmax=(vi**2)*(np.sin(2*grados))/(g)
 vho = vi*(cos(radians(angulo)))
 vver = vi*(sin(radians(angulo)))
 
+print ("\nAngulo de grados en radianes:",format(grados ,".2f")) #no es necesario, lo uso para que vayamos viendo el resultado, se usará en las formulas de abajo
 
-print("Un proyectil lanzado con una velocidad inicial de Vo=",vi,"m/s y un ángulo de ?=",angulo,"°,")
-print("iniciará su trayectoria con una velocidad horizontal de vxO: ",format(vho,".3f"),"m/s,")
-print("y una velocidad vertical de vyO: ",format(vver,".3f"),"m/s.")
-print()
-print("Los parámetros más relevantes de su trayectoria son:")
+print("\nUn proyectil lanzado con una velocidad inicial(Vi) de:",vi,"m/s a un ángulo de:",angulo,"°")
+print("Iniciará su trayectoria con una velocidad horizontal de (Vxi):",format(vho,".3f"),"m/s,")
+print("y una velocidad vertical de(Vyi):",format(vver,".3f"),"m/s.")
+
+print("\nLos parámetros más relevantes de su trayectoria son:")
 
 tmax=(vi*sin(grados))/(g)
 tv=2*(tmax)
-print()
-print(str("La altura máxima  alcanzada por el proyectil es: Ymax")+" = "+str(ymax)+" m")
-print()
-print(str("El alcance máximo horizontal  del proyectil es: Xmax")+" = "+str(xmax)+" m")
-print()
-print("La altura máxima (m) alcanzada por el proyectil es: Ymax =",format(ymax,".2f"))
-print()
-print("El alcance máximo horizontal(m) del proyectil es: Xmax =",format(xmax," .2f"))
-print()
-print("El tiempo máximo t1max (s) que alcanza el proyectil para el ángulo ? es: t1max =",format(tmax,".2f"))
-print()
-print("El tiempo de vuelo t1v(s) que alcanza el proyectil para el angulo ? es: t1v =",format(tv,".2f"))
-print("----------------------------------------------------------------------")
-print("----------------------------------------------------------------------")
 
-# Definimos la ecuación de la trayectoria
+#print(str("La altura máxima  alcanzada por el proyectil es(Ymax): ")+str(ymax)+"m")
+#print(str("El alcance máximo horizontal  del proyectil es(Xmax): ")+str(xmax)+"m")
+
+print("La altura máxima alcanzada por el proyectil es(Ymax):",format(ymax,".2f"))
+print("El alcance máximo horizontal del proyectil es(Xmax):",format(xmax,".2f"))
+
+#Tiempo
+print("El tiempo máximo TiMax(s) que alcanza el proyectil para el ángulo x es:",format(tmax,".2f"))
+#Representa el tiempo total que tarda el proyectil en alcanzar su altura máxima y luego regresar al suelo
+print("El tiempo de vuelo TiV(s) que alcanza el proyectil para el angulo x es:",format(tv,".2f"))
+#Representa el tiempo total que el proyectil está en el aire desde el momento del lanzamiento hasta el momento en que impacta en el suelo
+
+#Creación de la ventana del plano
+#Definimos la ecuación de la trayectoria
 def f(x):
    return(a*x-b*x**2)
-x=np.linspace(0,xmax,500)
-
-# añadimos el subtitulo
-plt.suptitle("CINEMÁTICA",fontsize=20,color="red")
+x=np.linspace(0,xmax,500)       
+#añadimos el subtitulo
+plt.suptitle("Evento fisico simulado: Tiro parabolico.",fontsize=20,color="blue")
 
 #añadimos las etiquetas de los ejes
-plt.xlabel("xmax",fontsize=20,color="red")                                      
-plt.ylabel("ymax",fontsize=20,color="blue")
+plt.xlabel("Eje X",fontsize=20,color="red")                                      
+plt.ylabel("Eje Y",fontsize=20,color="red")
 #añadimos texto
 plt.text(((np.argmax(f(x)))/2),np.max(f(x))+1,"vi=",fontsize=10)
 plt.text(((np.argmax(f(x)))/2)+11,np.max(f(x))+1,(str(vi)+"m/s"),fontsize=10)
-
-# Añadimos la rejilla en la gráfica
+#Añadimos la rejilla en la gráfica
 plt.grid(True)                                                              
 plt.grid(color = '0.5', linestyle = '--', linewidth = 1)
-# Añadimos los ejes
-# plt.axis("tight")
-
-# dibujamos y ponemos etiquetas a la gráfica
+#Añadimos los ejes
+#Dibujamos y ponemos etiquetas a la gráfica
 plt.text(3,1,angulo,fontsize=10)
-plt.plot(x, f(x), "red", linewidth = 2, label = (str(angulo)+"º"))
+plt.plot(x, f(x), "red", linewidth = 1, label = (str(angulo)+("°")))
+
 plt.show()
