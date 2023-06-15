@@ -30,7 +30,7 @@ El tiro parabólico tiene numerosas aplicaciones en la vida cotidiana y en difer
 4. Juegos y simulaciones: El tiro parabólico se utiliza en juegos y simulaciones virtuales para crear experiencias realistas y calcular el movimiento de objetos en entornos virtuales.
 5. Estudios científicos: El análisis del tiro parabólico se utiliza en diferentes estudios científicos, como la investigación de la trayectoria de partículas en física de partículas, el estudio del movimiento de objetos en la atmósfera terrestre y el análisis de fenómenos naturales, como la caída de meteoritos.
 
-    ![1686017593524](image/README/1686017593524.png)
+   ![1686017593524](image/README/1686017593524.png)
 
 Ejercicio 1:
 Un proyectil se lanza con una velocidad inicial de 30 m/s a un ángulo de inclinación de 60 grados respecto a la horizontal. Queremos determinar el tiempo que tarda en alcanzar su altura máxima y el alcance máximo horizontal.
@@ -50,9 +50,7 @@ Datos:
 * Ángulo de inclinación (θ) = 30 grados
 * Aceleración debido a la gravedad (g) = 9.8 m/s^2
 
-
-
-Ejercicio 1:
+Desarrolo ejercicio 1:
 Un proyectil se lanza con una velocidad inicial de 30 m/s a un ángulo de inclinación de 60 grados respecto a la horizontal. Queremos determinar el tiempo que tarda en alcanzar su altura máxima y el alcance máximo horizontal.
 
 Datos:
@@ -92,3 +90,19 @@ x_max = v0x * (2 * t_max)
 x_max = 15 m/s * (2 * 2.65 s) ≈ 79.5 m
 
 Por lo tanto, el proyectil tarda aproximadamente 2.65 segundos en alcanzar su altura máxima y su alcance máximo horizontal es de aproximadamente 79.5 metros.
+
+Al ejecutar el algoritmo realizado y poner los datos del problema o ejercicio 1 osea la velocidad inicial y los grados, el codigo genera los mismos datos o bastante similares a los resultados realizados con desarrollo, debido a que el algoritmo hace lo mismo, osea saca la altira maxima, el alcance maximo horizontal y algunos datos más debido a que con las librerias facilita el sacar los resultados e ir trabajando con ellos al ser variables.
+
+Codigo(explicación);
+
+1. Importación de librerias: Se importan las librerias necesarias, incluyendo `math` para funciones matemáticas, `numpy` para cálculos numéricos y `matplotlib.pyplot` para visualización de gráficas(Generar la ventana con el plano cartesiano).
+2. Entrada de datos: El programa solicita al usuario ingresar la velocidad inicial (`vi`) y el ángulo (`angulo`) del lanzamiento. Se realizan validaciones para asegurarse de que los valores ingresados sean correctos.
+3. Conversión a radianes: El ángulo en grados se convierte a radianes (`grados`) utilizando la fórmula `grados = ((angulo*pi)/180)`.
+4. Definición de constantes: Se define la gravedad (`g`) como 9.81 m/s^2.
+5. Posicionamiento en el plano cartesiano: El usuario ingresa las coordenadas iniciales (`x` e `y`) del proyectil en el plano cartesiano.
+6. Cálculos de parámetros: Se realizan diversos cálculos utilizando fórmulas de la cinemática de un tiro parabólico. Se calculan la aceleración (`a`), el coeficiente (`b`), la altura máxima (`ymax`), el alcance máximo horizontal (`xmax`), las velocidades horizontal (`vho`) y vertical (`vver`), el tiempo máximo de vuelo (`tmax`) y el tiempo de vuelo total (`tv`).
+7. Impresión de resultados: Se imprimen los resultados de los cálculos, incluyendo los parámetros relevantes de la trayectoria y los tiempos máximo de vuelo y de vuelo total.
+8. Gráfica de la trayectoria: Se define una función `f(x)` que representa la ecuación de la trayectoria parabólica. Se genera un conjunto de puntos en el eje x (`x`) y se grafica la función utilizando `matplotlib.pyplot`. Se añaden etiquetas y títulos a la gráfica.
+9. Visualización de la gráfica: Se muestra la gráfica resultante.
+
+En resumen, el programa solicita al usuario la velocidad y ángulo de lanzamiento de un proyectil, realiza cálculos para determinar diversos parámetros y luego muestra una gráfica que representa la trayectoria parabólica del proyectil.
